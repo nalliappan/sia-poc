@@ -22,32 +22,13 @@ var app = {
     initialize: function() {
         //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
         document.addEventListener('deviceready', function () {
-            /*// basic usage
-            TTS
-                .speak('My Name is nalliappan').then(function () {
-                    alert('success');
-                }, function (reason) {
-                    alert(reason);
-                });
-        
-            // or with more options
-            TTS
-                .speak({
-                    text: 'hello, world!',
-                    locale: 'en-GB',
-                    rate: 0.75
-                }).then(function () {
-                    alert('success');
-                }, function (reason) {
-                    alert(reason);
-                });*/
-
+           
                 let options = {
                     language: 'en-US',
                     matches: 1,
                     prompt: "",      // Android only
                     showPopup: true,  // Android only
-                    showPartial: false 
+                    showPartial: true 
                  }
                  document.getElementById('msg').innerHTML = '';
                  document.getElementById('speech').value = '';
@@ -120,15 +101,35 @@ function connectDialogFlow(){
         console.log(data); // JSON data parsed by `response.json()` call
         if(data && data.queryResult && data.queryResult.fulfillmentText ){
         if(data.queryResult.fulfillmentText.indexOf('leave_application') !== -1){
-                window.location.href="leave_request.html";
+            SpeechBackResponse(data.queryResult.fulfillmentText, "leave_request.html");
         }else if(data.queryResult.fulfillmentText.indexOf('permission_application') !== -1){
-                window.location.href="permission_request.html";
+            SpeechBackResponse(data.queryResult.fulfillmentText, "permission_request.html");
+        }else {
+            SpeechBackResponse(data.queryResult.fulfillmentText);
         }
 
         }
     });
 }
 
+function SpeechBackResponse(text, url){
+    try{
+        TTS
+        .speak({
+            text,
+            locale: 'en-GB',
+            rate: 0.75
+        }).then(function () {
+            alert('success');
+        });
+    }catch(e){
+        console.log(e);
+    }finally{
+        if(url){
+            window.location.href=url;
+        }
+    }
+}
 
 // Example POST method implementation:
 async function postData(url = '', data = {}) {
@@ -140,7 +141,7 @@ cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 credentials: 'same-origin', // include, *same-origin, omit
 headers: {
     'Content-Type': 'application/json',
-    "Authorization" : 'Bearer ya29.c.Ko8BvQd9s7_OlX38ewB-0luSa1CnWHw77w2cq1bvEp-DoQ9mg6ZTjLi6N_kcUPiN_FYJClopkqfnGOFN20j98kVvCrJV7vUvuH_5MV2FU59lVFUkvHCz5go_CrhxZCvgLyEJrpU2_RR5tQCtX8jV6st0NXOSvGXUWkY4Mk5GPurm8taKZw_UfTw4Hgu9oRSnlck'
+    "Authorization" : 'Bearer ya29.c.Ko8BvQciPi6uo1-hPGr9V_ARYnBLkOj6E4Ux6FZLz0n28qOrEJNdz6oMYEJx8VsLVzzK9oSnFKDS1L6FZaofsM5LGGBIcGBHxDysaijpp2maS4Is1jIaHbEI18tCbi1xDoHlvLHaVCi5ytNSA_gi8LquaD91DSm2l0QTLlDkM6Jl66IF1-UUa08pfXSGvwWgMro'
     // 'Content-Type': 'application/x-www-form-urlencoded',
 },
 redirect: 'follow', // manual, *follow, error
