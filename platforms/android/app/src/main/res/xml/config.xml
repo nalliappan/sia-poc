@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="SpeechRecognition">
+        <param name="android-package" value="com.pbakondy.SpeechRecognition" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="TTS">
+        <param name="android-package" value="com.wordsbaking.cordova.tts.TTS" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>Chat Bot  - POC</name>
+    <description>
+        Demo application for listening user audio and respond back to user and navigate to specific pages.
+    </description>
+    <author email="nalliappang@gmail.com">
+        Nalliappan Ganeshan
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>
