@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
+  "name": "Chat Bot  - POC",
+  "short_name": "Chat Bot  - POC",
   "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "description": "Demo application for listening user audio and respond back to user and navigate to specific pages.",
+  "author": "Nalliappan Ganeshan",
   "icons": [],
   "start_url": "index.html"
 }

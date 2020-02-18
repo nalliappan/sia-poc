@@ -17,6 +17,57 @@
  * under the License.
  */
 var speechText = "";
+const ACCESS_TOKEN = "";
+const CLIENT_ID = "35530924122-2isjro8mkt8plavabhkudqieg6f70esq.apps.googleusercontent.com";
+const CLIENT_SECRET_ID = "G7N4XJa0_Pa_Vri_8tXD69Dn";
+const REFRESH_TOKEN = "1//04-6PrB-6YZ0JCgYIARAAGAQSNwF-L9IrR7tg2-axoetVhBlAFjZNybmzpERA8GBVGRLCM5GaQa41STxLoLKXlMUQrSJOzQ5GoRM";
+const GAPI_URL = "https://oauth2.googleapis.com/token";
+const DIALOGFLOW_URL = "https://dialogflow.googleapis.com/v2/projects/sia-poc-tmrqcp/agent/sessions/123456789:detectIntent";
+
+
+var details = {
+    'client_id': CLIENT_ID,
+    'client_secret': CLIENT_SECRET_ID,
+    'refresh_token': REFRESH_TOKEN,
+    'grant_type': 'refresh_token'
+};
+
+var formBody = [];
+for (var property in details) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(details[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+
+async function getToken(){
+    try{
+        const authData =  await fetch(GAPI_URL, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            body: formBody
+            });
+
+        const response = await authData.json();
+
+        if(response){
+            localStorage.setItem('access_token', response.access_token);
+        }
+        
+    }catch(err){
+        console.log(err);
+    }
+}
+
+getToken();
+
+setInterval(getToken, 1200000);
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -33,34 +84,19 @@ var app = {
                  document.getElementById('msg').innerHTML = '';
                  document.getElementById('speech').value = '';
                  document.getElementById('start').addEventListener('click', function(){
+                    document.getElementById('speech').value = '';
                     document.getElementById('msg').innerHTML = 'Listening Started..';
                     window.plugins.speechRecognition.startListening(
                         (response) => {
                             const speech = response.join();
-                           /*(if(speech.indexOf('leave') !== -1){
-                                window.location.href="leave_request.html";
-                           }else if(speech.indexOf('permission') !== -1){
-                                window.location.href="permission_request.html";
-                           }else{
-                                document.getElementById('msg').innerHTML = 'Please ask some other query?';
-                           }*/
                            document.getElementById('speech').value = speech;
                            speechText = speech;
-                           //connectDialogFlow(speech);
                         }, () => {
                             console.log('error')
                         },  options)
                 })
         
-                document.getElementById('stop').addEventListener('click', function(){
-                    window.plugins.speechRecognition.stopListening(
-                        () => {
-                            document.getElementById('msg').innerHTML = 'Listening Stopped..';
-                        }, (err) => {
-                            console.log(err)
-                        })
-                });
-
+               
                 document.getElementById('send').addEventListener('click', connectDialogFlow);
                  
                  
@@ -87,8 +123,16 @@ var app = {
 app.initialize();
 
 function connectDialogFlow(){
+
+    window.plugins.speechRecognition.stopListening(
+        () => {
+            document.getElementById('msg').innerHTML = 'Listening Stopped..';
+        }, (err) => {
+            console.log(err)
+        });
+
     document.getElementById('msg').innerHTML = 'Dialogflow service called.';
-    postData('https://dialogflow.googleapis.com/v2/projects/sia-poc-tmrqcp/agent/sessions/123456789:detectIntent',
+    postData(DIALOGFLOW_URL,
     {
         queryInput: {
             text: {
@@ -141,7 +185,7 @@ cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 credentials: 'same-origin', // include, *same-origin, omit
 headers: {
     'Content-Type': 'application/json',
-    "Authorization" : 'Bearer ya29.c.Ko8BvQciPi6uo1-hPGr9V_ARYnBLkOj6E4Ux6FZLz0n28qOrEJNdz6oMYEJx8VsLVzzK9oSnFKDS1L6FZaofsM5LGGBIcGBHxDysaijpp2maS4Is1jIaHbEI18tCbi1xDoHlvLHaVCi5ytNSA_gi8LquaD91DSm2l0QTLlDkM6Jl66IF1-UUa08pfXSGvwWgMro'
+    "Authorization" : 'Bearer '+ localStorage.getItem('access_token')
     // 'Content-Type': 'application/x-www-form-urlencoded',
 },
 redirect: 'follow', // manual, *follow, error

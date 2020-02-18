@@ -28,8 +28,8 @@
       "cordova-plugin-tts": {}
     },
     "platforms": [
-      "ios",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }
