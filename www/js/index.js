@@ -76,6 +76,22 @@ var app = {
 
             setInterval(getToken, 1200000);
 
+                //Check permission and make request if required.
+
+                window.plugins.speechRecognition.hasPermission(function(flag){
+                    if(!flag){
+                        window.plugins.speechRecognition.requestPermission(function(){
+                            console.log('Permission granted.')
+                        }, function(err){
+                            console.log(JSON.stringify(err))
+                        })
+                    }else{
+                        console.log('Speech Recognition permission required.')
+                    }
+                }, function(err){
+                    console.log(JSON.stringify(err));
+                });
+
                 let options = {
                     language: 'en-US',
                     matches: 1,
@@ -95,13 +111,16 @@ var app = {
                             const speech = response.join();
                            document.getElementById('speech').value = speech;
                            speechText = speech;
+                           //if(device.platform === 'Android'){
+                                connectDialogFlow();
+                           //}
                         }, (err) => {
                             console.log(JSON.stringify(err))
                         },  options)
                 })
         
                
-                document.getElementById('send').addEventListener('click', connectDialogFlow);
+                //document.getElementById('send').addEventListener('click', connectDialogFlow);
                  
                  
 
