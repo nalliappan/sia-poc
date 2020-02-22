@@ -64,9 +64,7 @@ async function getToken(){
     }
 }
 
-getToken();
 
-setInterval(getToken, 1200000);
 
 var app = {
     // Application Constructor
@@ -74,6 +72,10 @@ var app = {
         //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
         document.addEventListener('deviceready', function () {
            
+            getToken();
+
+            setInterval(getToken, 1200000);
+
                 let options = {
                     language: 'en-US',
                     matches: 1,
@@ -88,11 +90,13 @@ var app = {
                     document.getElementById('msg').innerHTML = 'Listening Started..';
                     window.plugins.speechRecognition.startListening(
                         (response) => {
+                            console.log('response got');
+                            console.log(JSON.stringify(response))
                             const speech = response.join();
                            document.getElementById('speech').value = speech;
                            speechText = speech;
-                        }, () => {
-                            console.log('error')
+                        }, (err) => {
+                            console.log(JSON.stringify(err))
                         },  options)
                 })
         
@@ -102,10 +106,10 @@ var app = {
                  
 
                 window.plugins.speechRecognition.getSupportedLanguages(
-                    (lang) => {
+                    function(lang){
                         console.log('Supported languages..');
-                        console.log(lang);
-                    }, (err) => {
+                        console.log(JSON.stringify(lang));
+                    }, function(err){
                         console.log(err)
                 });
 
@@ -136,13 +140,13 @@ function connectDialogFlow(){
     {
         queryInput: {
             text: {
-                text: speechText,
+                text: speechText || document.getElementById('speech').value,
                 languageCode: "en-US"
             }
         },
     })
     .then((data) => {
-        console.log(data); // JSON data parsed by `response.json()` call
+        console.log(JSON.stringify(data)); // JSON data parsed by `response.json()` call
         if(data && data.queryResult && data.queryResult.fulfillmentText ){
         if(data.queryResult.fulfillmentText.indexOf('leave_application') !== -1){
             SpeechBackResponse(data.queryResult.fulfillmentText, "leave_request.html");
@@ -163,8 +167,6 @@ function SpeechBackResponse(text, url){
             text,
             locale: 'en-GB',
             rate: 0.75
-        }).then(function () {
-            alert('success');
         });
     }catch(e){
         console.log(e);

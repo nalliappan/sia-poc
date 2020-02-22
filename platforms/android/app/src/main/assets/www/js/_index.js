@@ -90,13 +90,11 @@ var app = {
                     document.getElementById('msg').innerHTML = 'Listening Started..';
                     window.plugins.speechRecognition.startListening(
                         (response) => {
-                            console.log('response got');
-                            console.log(JSON.stringify(response))
                             const speech = response.join();
                            document.getElementById('speech').value = speech;
                            speechText = speech;
-                        }, (err) => {
-                            console.log(JSON.stringify(err))
+                        }, () => {
+                            console.log('error')
                         },  options)
                 })
         
@@ -140,13 +138,13 @@ function connectDialogFlow(){
     {
         queryInput: {
             text: {
-                text: speechText || document.getElementById('speech').value,
+                text: speechText,
                 languageCode: "en-US"
             }
         },
     })
     .then((data) => {
-        console.log(JSON.stringify(data)); // JSON data parsed by `response.json()` call
+        console.log(data); // JSON data parsed by `response.json()` call
         if(data && data.queryResult && data.queryResult.fulfillmentText ){
         if(data.queryResult.fulfillmentText.indexOf('leave_application') !== -1){
             SpeechBackResponse(data.queryResult.fulfillmentText, "leave_request.html");
@@ -167,6 +165,8 @@ function SpeechBackResponse(text, url){
             text,
             locale: 'en-GB',
             rate: 0.75
+        }).then(function () {
+            alert('success');
         });
     }catch(e){
         console.log(e);

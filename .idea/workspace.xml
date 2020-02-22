@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2fa56f7c-39bb-4f59-80df-f1fb526aee24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/android/com/pbakondy/LanguageDetailsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/android/com/pbakondy/LanguageDetailsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/android/com/pbakondy/SpeechRecognition.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/android/com/pbakondy/SpeechRecognition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/ios/SpeechRecognition.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/ios/SpeechRecognition.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/ios/SpeechRecognition.m" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/src/ios/SpeechRecognition.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/www/speechRecognition.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-plugin-speechrecognition/www/speechRecognition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/android.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/browser/browser.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/browser/browser.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/browser/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/browser/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/browser/www/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/browser/www/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/browser/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/browser/www/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/browser/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/browser/www/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/Chat Bot  - POC-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/Chat Bot  - POC-Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/Images.xcassets/LaunchStoryboard.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/Images.xcassets/LaunchStoryboard.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/Chat Bot  - POC/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/ios.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/ios.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/www/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/index.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="522" />
+    <option name="width" value="834" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fa56f7c-39bb-4f59-80df-f1fb526aee24" name="Default Changelist" comment="" />
+      <created>1582290285343</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582290285343</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.3296131" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+  </component>
+</project>
