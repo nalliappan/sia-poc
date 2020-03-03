@@ -100,16 +100,19 @@ var app = {
                     showPartial: true 
                  }
                  document.getElementById('msg').innerHTML = '';
-                 document.getElementById('speech').value = '';
+                 //document.getElementById('speech').value = '';
+                 document.getElementById('query').innerHTML = '';
                  document.getElementById('start').addEventListener('click', function(){
-                    document.getElementById('speech').value = '';
+                    //document.getElementById('speech').value = '';
+                    document.getElementById('query').innerHTML ='';
                     document.getElementById('msg').innerHTML = 'Listening Started..';
                     window.plugins.speechRecognition.startListening(
                         (response) => {
                             console.log('response got');
                             console.log(JSON.stringify(response))
                             const speech = response.join();
-                           document.getElementById('speech').value = speech;
+                           //document.getElementById('speech').value = speech;
+                           document.getElementById('query').innerHTML = speech;
                            speechText = speech;
                            //if(device.platform === 'Android'){
                                 connectDialogFlow();
@@ -159,17 +162,17 @@ function connectDialogFlow(){
     {
         queryInput: {
             text: {
-                text: speechText || document.getElementById('speech').value,
+                text: speechText || document.getElementById('query').innerHTML,
                 languageCode: "en-US"
             }
         },
     })
     .then((data) => {
         console.log(JSON.stringify(data)); // JSON data parsed by `response.json()` call
-        if(data && data.queryResult && data.queryResult.fulfillmentText ){
-        if(data.queryResult.fulfillmentText.indexOf('leave_application') !== -1){
+        if(data && data.queryResult && data.queryResult.action ){
+        if(data.queryResult.action.indexOf('request.leave') !== -1){
             SpeechBackResponse(data.queryResult.fulfillmentText, "leave_request.html");
-        }else if(data.queryResult.fulfillmentText.indexOf('permission_application') !== -1){
+        }else if(data.queryResult.action.indexOf('request.permission') !== -1){
             SpeechBackResponse(data.queryResult.fulfillmentText, "permission_request.html");
         }else {
             SpeechBackResponse(data.queryResult.fulfillmentText);
@@ -180,19 +183,20 @@ function connectDialogFlow(){
 }
 
 function SpeechBackResponse(text, url){
+    document.getElementById('response').innerHTML = '> '+ text;
     try{
         TTS
         .speak({
             text,
             locale: 'en-GB',
-            rate: 0.75
+            rate: 1.5
+        },function(){
+            if(url){
+                window.location.href=url;
+            }
         });
     }catch(e){
         console.log(e);
-    }finally{
-        if(url){
-            window.location.href=url;
-        }
     }
 }
 
